@@ -27,7 +27,7 @@ editform.addEventListener("submit", async (e) => {
         password: passwordInput.value,
     };
 
-    await fetch(`http://localhost:5000/users/${id}`, {
+    await fetch(`https://jsproject-n6mt.onrender.com/users/${id}`, {
         method: "put",
         body: JSON.stringify(updatedData),
         headers: {

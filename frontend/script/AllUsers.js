@@ -3,7 +3,7 @@ const userscontainer = document.querySelector("#users-container")
 
 async function getAllUser() {
     try {
-        let resp = await fetch("http://localhost:5000/users");
+        let resp = await fetch("https://jsproject-n6mt.onrender.com/users");
         let data = await resp.json();
         // console.log(data);
         displayUsers(data)
@@ -39,7 +39,7 @@ function editUser(id){
     
 }
 async function deleteUser(id){
-   fetch(`http://localhost:5000/users/${id}`,{
+   fetch(`https://jsproject-n6mt.onrender.com/users/${id}`,{
     method: "DELETE",
    });
    alert("User Deleted")
