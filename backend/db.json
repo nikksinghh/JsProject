@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "fullname": "Nikhil Singh",
+      "email": "nikhil844128@gmail.com",
+      "password": "1234567890",
+      "id": 1
+    },
+    {
+      "fullname": "Nikk",
+      "email": "nik@gmail.com",
+      "password": "123456",
+      "id": 2
+    }
+  ]
+}
