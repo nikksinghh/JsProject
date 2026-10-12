@@ -1,56 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../index.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User | CRUD-APP</title>
+    <link rel="stylesheet" href="../index.css">
+    <script src="../script/api.js"></script>
     <script src="../script/CreateUser.js" defer></script>
-  </head>
-  <body>
+</head>
+<body>
+    <!-- NAVBAR -->
     <header class="navbar">
-      <figure class="logo">CRUD-APP</figure>
+        <a href="../index.html" class="logo-link">
+            <div class="logo-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+            </div>
+            <span class="logo-text">CRUD-APP</span>
+        </a>
 
-      <nav class="navlinks">
-        <a href="../index.html">Home</a>
-        <a href="./CreateUser.html">Create User</a>
-        <a href="./AllUsers.html">All Users</a>
-      </nav>
+        <nav class="navlinks">
+            <a href="../index.html" class="nav-item">Home</a>
+            <a href="./AllUsers.html" class="nav-item">All Users</a>
+            <a href="./CreateUser.html" class="nav-item active nav-cta-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Create User
+            </a>
+        </nav>
     </header>
+
     <!-- MAIN SECTION -->
     <main class="main-container">
-      <h1>Create user</h1>
-      <form class="form" id="register-form">
-        <label for="fullname">fullname</label>
-        <input
-          type="text"
-          name="fullname"
-          id="fullname"
-          placeholder="jone doe"
-          required
-        />
-        <br />
-        <label for="email">Email</label>
-        <input
-          for="email"
-          name="email"
-          id="email"
-          placeholder="jone@gmail.com"
-          required
-        />
-        <br />
-        <label for="password">password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="**********"
-          minlength="6"
-          required
-        />
-        <br />
-        <button type="submit" >Create</button>
-      </form>
+        <div class="form-card-container">
+            <div class="form-card">
+                <div class="form-header">
+                    <div class="form-header-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <line x1="19" y1="8" x2="19" y2="14"/>
+                            <line x1="22" y1="11" x2="16" y2="11"/>
+                        </svg>
+                    </div>
+                    <h1 class="form-title">Create New User</h1>
+                    <p class="form-desc">Add a new user record to the cloud database</p>
+                </div>
+
+                <form id="register-form" novalidate>
+                    <div class="form-group">
+                        <label class="form-label" for="fullname">Full Name</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <input
+                                type="text"
+                                name="fullname"
+                                id="fullname"
+                                class="form-input"
+                                placeholder="e.g. John Doe"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                class="form-input"
+                                placeholder="john.doe@example.com"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                class="form-input"
+                                placeholder="Enter secure password"
+                                minlength="6"
+                                required
+                            />
+                            <button type="button" class="input-action-btn" id="toggle-pwd-btn" title="Toggle password visibility">
+                                <svg id="toggle-pwd-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="form-helper">Must be at least 6 characters long</p>
+                    </div>
+
+                    <div class="form-actions">
+                        <a href="./AllUsers.html" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <line x1="19" y1="8" x2="19" y2="14"/>
+                                <line x1="22" y1="11" x2="16" y2="11"/>
+                            </svg>
+                            <span id="btn-text">Create User</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
-  </body>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 CRUD-APP. Built with Modern HTML, CSS & Vanilla JavaScript.</p>
+    </footer>
+</body>
 </html>

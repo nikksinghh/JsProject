@@ -3,26 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>All Users | CRUD-APP</title>
     <link rel="stylesheet" href="../index.css">
+    <script src="../script/api.js"></script>
     <script src="../script/AllUsers.js" defer></script>
 </head>
 <body>
-     <header class="navbar">
-        <figure class="logo">
-            CRUD-APP
-        </figure>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="../index.html" class="logo-link">
+            <div class="logo-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+            </div>
+            <span class="logo-text">CRUD-APP</span>
+        </a>
 
         <nav class="navlinks">
-            <a href="../index.html">Home</a>
-            <a href="./CreateUser.html">Create User</a>
-            <a href="./AllUsers.html">All Users</a>
+            <a href="../index.html" class="nav-item">Home</a>
+            <a href="./AllUsers.html" class="nav-item active">All Users</a>
+            <a href="./CreateUser.html" class="nav-item nav-cta-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Create User
+            </a>
         </nav>
-     </header>
-     <!-- MAIN SECTION -->
-      <main class="main-container">
-        <h1>All user</h1>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main class="main-container">
+        <!-- PAGE HEADER -->
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    User Directory
+                </h1>
+                <p class="page-subtitle">View, search, and manage registered user profiles</p>
+            </div>
+            <div>
+                <a href="./CreateUser.html" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    Add New User
+                </a>
+            </div>
+        </div>
+
+        <!-- CONTROLS & SEARCH -->
+        <div class="controls-bar">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Search users by name or email..." 
+                    autocomplete="off"
+                />
+            </div>
+            <div>
+                <span class="badge-count" id="user-count-badge">Loading users...</span>
+            </div>
+        </div>
+
+        <!-- USERS GRID -->
         <section id="users-container"></section>
-      </main>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 CRUD-APP. Built with Modern HTML, CSS & Vanilla JavaScript.</p>
+    </footer>
 </body>
 </html>
